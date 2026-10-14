@@ -8,7 +8,7 @@ struct AppConfiguration {
     let priceFeedURL: URL
     let stocks: [Stock]
 
-    static let live = AppConfiguration(
+    static let PROD = AppConfiguration(
         priceFeedURL: URL(string: "wss://ws.postman-echo.com/raw")!,
         stocks: SymbolCatalog.all
     )

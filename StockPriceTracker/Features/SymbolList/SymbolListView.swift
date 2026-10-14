@@ -3,12 +3,19 @@ import SwiftUI
 
 // MARK:  -  Symbol List View  -
 
+/// Builds its own view model from the store, and keeps it in state so the sort choice survives redraws.
 struct SymbolListView: View {
-    @Bindable var viewModel: SymbolListViewModel
+    @State private var viewModel: SymbolListViewModel
+
+    init(store: PriceStore) {
+        _viewModel = State(initialValue: SymbolListViewModel(store: store))
+    }
 
     var body: some View {
         List(viewModel.rows) { stock in
-            SymbolRowView(stock: stock)
+            NavigationLink(value: stock.symbol) {
+                SymbolRowView(stock: stock)
+            }
         }
         .animation(.default, value: viewModel.sortOption)
         .navigationTitle("Symbols")
@@ -25,7 +32,7 @@ struct SymbolListView: View {
                 .accessibilityIdentifier("feedToggleButton")
             }
             ToolbarItem(placement: .bottomBar) {
-                Picker("Sort", selection: $viewModel.sortOption) {
+                Picker("Sort", selection: Bindable(viewModel).sortOption) {
                     Text("Price").tag(SortOption.price)
                     Text("Price Change").tag(SortOption.priceChange)
                 }
