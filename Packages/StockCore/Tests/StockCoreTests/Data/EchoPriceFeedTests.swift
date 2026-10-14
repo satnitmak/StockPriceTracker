@@ -16,7 +16,7 @@ private actor FeedRecorder {
 struct EchoPriceFeedTests {
     private let endpoint = URL(string: "wss://example.test/echo")!
 
-    private func makeFeed(supply: FakeTransportSupply) -> EchoPriceFeed {
+    private func makeFeed(supply: MockTransportSupply) -> EchoPriceFeed {
         EchoPriceFeed(
             endpoint: endpoint,
             makeTransport: { await supply.next() },
@@ -39,7 +39,7 @@ struct EchoPriceFeedTests {
 
     @Test func connectsToTheEndpoint() async throws {
         let transport = FakeWebSocketTransport()
-        let supply = FakeTransportSupply([transport])
+        let supply = MockTransportSupply([transport])
         let feed = makeFeed(supply: supply)
 
         await feed.start()
@@ -49,7 +49,7 @@ struct EchoPriceFeedTests {
     }
 
     @Test func reportsConnectingThenConnected() async throws {
-        let feed = makeFeed(supply: FakeTransportSupply())
+        let feed = makeFeed(supply: MockTransportSupply())
         let (recorder, tasks) = record(feed)
 
         await feed.start()
@@ -61,7 +61,7 @@ struct EchoPriceFeedTests {
 
     @Test func echoedPricesBecomeUpdates() async throws {
         let transport = FakeWebSocketTransport()
-        let feed = makeFeed(supply: FakeTransportSupply([transport]))
+        let feed = makeFeed(supply: MockTransportSupply([transport]))
         let (recorder, tasks) = record(feed)
 
         await feed.start()
@@ -78,7 +78,7 @@ struct EchoPriceFeedTests {
 
     @Test func malformedEchoesAreIgnoredWithoutDroppingTheConnection() async throws {
         let transport = FakeWebSocketTransport()
-        let supply = FakeTransportSupply([transport])
+        let supply = MockTransportSupply([transport])
         let feed = makeFeed(supply: supply)
         let (recorder, tasks) = record(feed)
 
@@ -96,7 +96,7 @@ struct EchoPriceFeedTests {
 
     @Test func droppedConnectionReportsDisconnectedAndDoesNotRetry() async throws {
         let first = FakeWebSocketTransport()
-        let supply = FakeTransportSupply([first])
+        let supply = MockTransportSupply([first])
         let feed = makeFeed(supply: supply)
         let (recorder, tasks) = record(feed)
 
@@ -114,7 +114,7 @@ struct EchoPriceFeedTests {
     @Test func startAfterADropConnectsAgain() async throws {
         let first = FakeWebSocketTransport()
         let second = FakeWebSocketTransport()
-        let supply = FakeTransportSupply([first, second])
+        let supply = MockTransportSupply([first, second])
         let feed = makeFeed(supply: supply)
         let (recorder, tasks) = record(feed)
 
@@ -132,7 +132,7 @@ struct EchoPriceFeedTests {
 
     @Test func stopClosesTheSocketAndStopsSending() async throws {
         let transport = FakeWebSocketTransport()
-        let feed = makeFeed(supply: FakeTransportSupply([transport]))
+        let feed = makeFeed(supply: MockTransportSupply([transport]))
         let (recorder, tasks) = record(feed)
 
         await feed.start()

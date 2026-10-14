@@ -4,7 +4,7 @@ import Foundation
 // MARK:  -  Fake Transport Supply  -
 
 /// Hands out transports in order, creating echoing ones once the scripted list runs out.
-actor FakeTransportSupply {
+actor MockTransportSupply {
     private var pending: [FakeWebSocketTransport]
     private(set) var issued: [FakeWebSocketTransport] = []
 
