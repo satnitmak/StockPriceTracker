@@ -23,6 +23,20 @@ struct SymbolListViewModelTests {
         await feed.emit(PriceUpdate(symbol: "TSLA", price: 190, timestamp: .now))
     }
 
+    // MARK:  -  Live updates  -
+
+    @Test func rowsShowTheUpdatedPriceAndReorder() async throws {
+        let feed = StubPriceFeed()
+        let viewModel = makeViewModel(feed: feed)
+        // Opening order by price: TSLA 200, AAPL 100, NVDA 50.
+
+        await feed.emit(PriceUpdate(symbol: "NVDA", price: 300, timestamp: .now))
+
+        try await waitUntilMain { viewModel.rows.first?.symbol == "NVDA" }
+        #expect(viewModel.rows.first?.price == 300)
+        #expect(viewModel.rows.map(\.symbol) == ["NVDA", "TSLA", "AAPL"])
+    }
+
     // MARK:  -  Sorting  -
 
     @Test func sortsByPriceHighestFirstByDefault() async throws {

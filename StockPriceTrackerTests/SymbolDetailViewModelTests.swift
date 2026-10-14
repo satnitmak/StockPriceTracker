@@ -37,6 +37,20 @@ struct SymbolDetailViewModelTests {
         #expect(viewModel.stock?.change == 30)
     }
 
+    @Test func unknownSymbolStaysEmptyWhenOtherStocksUpdate() async throws {
+        let feed = StubPriceFeed()
+        let store = PriceStore(stocks: [apple], feed: feed)
+        let known = SymbolDetailViewModel(symbol: "AAPL", store: store)
+        let unknown = SymbolDetailViewModel(symbol: "ZZZZ", store: store)
+
+        await feed.emit(PriceUpdate(symbol: "AAPL", price: 130, timestamp: .now))
+        await feed.emit(PriceUpdate(symbol: "ZZZZ", price: 999, timestamp: .now))
+
+        // Once the known stock has the new price, the unknown symbol's update has been processed too.
+        try await waitUntilMain { known.stock?.price == 130 }
+        #expect(unknown.stock == nil)
+    }
+
     @Test func mirrorsTheConnectionStatus() async throws {
         let feed = StubPriceFeed()
         let viewModel = makeViewModel(symbol: "AAPL", feed: feed)
