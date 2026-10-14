@@ -20,11 +20,11 @@ struct ConnectionStatusView: View {
         .accessibilityIdentifier("connectionStatus")
     }
 
-    private var title: String {
+    private var title: LocalizedStringKey {
         switch state {
-        case .disconnected: return "Disconnected"
-        case .connecting: return "Connecting"
-        case .connected: return "Connected"
+        case .disconnected: return tr.connectionStatus.disconnected
+        case .connecting: return tr.connectionStatus.connecting
+        case .connected: return tr.connectionStatus.connected
         }
     }
 

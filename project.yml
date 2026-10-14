@@ -1,6 +1,7 @@
 name: StockPriceTracker
 options:
   bundleIdPrefix: com.example
+  developmentLanguage: en
   createIntermediateGroups: true
   deploymentTarget:
     iOS: "17.0"

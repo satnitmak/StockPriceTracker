@@ -18,13 +18,13 @@ struct SymbolListView: View {
             }
         }
         .animation(.default, value: viewModel.sortOption)
-        .navigationTitle("Symbols")
+        .navigationTitle(tr.symbolList.title)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 ConnectionStatusView(state: viewModel.connectionState)
             }
             ToolbarItem(placement: .topBarTrailing) {
-                Button(viewModel.isFeedActive ? "Stop" : "Start") {
+                Button(viewModel.isFeedActive ? tr.symbolList.stop : tr.symbolList.start) {
                     Task { await viewModel.toggleFeed() }
                 }
                 .buttonStyle(.borderedProminent)
@@ -32,9 +32,11 @@ struct SymbolListView: View {
                 .accessibilityIdentifier("feedToggleButton")
             }
             ToolbarItem(placement: .bottomBar) {
-                Picker("Sort", selection: Bindable(viewModel).sortOption) {
-                    Text("Price").tag(SortOption.price)
-                    Text("Price Change").tag(SortOption.priceChange)
+                Picker(selection: Bindable(viewModel).sortOption) {
+                    Text(tr.symbolList.sortByPrice).tag(SortOption.price)
+                    Text(tr.symbolList.sortByPriceChange).tag(SortOption.priceChange)
+                } label: {
+                    Text(tr.symbolList.sortLabel)
                 }
                 .pickerStyle(.segmented)
             }

@@ -16,12 +16,14 @@
 		51381620F89AB04AF65864EC /* Polling.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00A235B1FE27CFABD5A28D2 /* Polling.swift */; };
 		528E5E639CB765A057373D48 /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D522FBFD9D466C4091FEBB8E /* ConnectionStatusView.swift */; };
 		7414A017B840DD5EECF74A64 /* SymbolListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A7C80D94C5F389CF35B8CE /* SymbolListViewModelTests.swift */; };
+		90873A080CD1BE642ABF116F /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A70FB8E44A01C677B66063 /* Localizations.swift */; };
 		A2E015C9AC03C91EA61416AC /* SymbolListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B20389DDA520A07792EDE3F /* SymbolListView.swift */; };
 		AAF4E653E0CD2CE3205954D7 /* StockCore in Frameworks */ = {isa = PBXBuildFile; productRef = C1DCC7E4B1040AB477C69A70 /* StockCore */; };
 		AC38E1F63A974AAD6B3ED1B7 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D645A87FFF4D3BA66D26AA /* AppConfiguration.swift */; };
 		C9D2D9E592622B5E0E7FA34C /* SymbolRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6E9096C31D77E87A399169 /* SymbolRowView.swift */; };
 		CD02BAD0FFDBB8B25F68564E /* PriceChangeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E5B619A8EEB2948988B7FB /* PriceChangeLabel.swift */; };
 		D52BB87BD0A33AE453D2E4F8 /* SymbolDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292ECA498618BF6F58F09330 /* SymbolDetailViewModel.swift */; };
+		DC66C7EF2C8F7741496ECF71 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7C4846C5AF2B7744D18F22CC /* Localizable.xcstrings */; };
 		DE4BDAFD1BD119AC9F770865 /* PriceFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0F073AB9BB1AA93956E345 /* PriceFormat.swift */; };
 		FFCE06CA236A0A8959F1D6E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A9A6E864D172C2E63B87A /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -46,9 +48,11 @@
 		3F169F8DCB9F6F8D385C59A1 /* StockPriceTrackerTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = StockPriceTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F56027373A1FBA9848A656E /* StockPriceTracker.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = StockPriceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654FC351A96D2DF1A21C83C0 /* StockCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StockCore; path = Packages/StockCore; sourceTree = SOURCE_ROOT; };
+		7C4846C5AF2B7744D18F22CC /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		9B20389DDA520A07792EDE3F /* SymbolListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolListView.swift; sourceTree = "<group>"; };
 		ACFADB757976969A02A33F5E /* SymbolListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolListViewModel.swift; sourceTree = "<group>"; };
 		B9BC8E4148EDDD7032FB5594 /* SymbolDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolDetailViewModelTests.swift; sourceTree = "<group>"; };
+		C6A70FB8E44A01C677B66063 /* Localizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizations.swift; sourceTree = "<group>"; };
 		D00A235B1FE27CFABD5A28D2 /* Polling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polling.swift; sourceTree = "<group>"; };
 		D2B11E488EBD8C63C0C2041A /* SymbolDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolDetailView.swift; sourceTree = "<group>"; };
 		D522FBFD9D466C4091FEBB8E /* ConnectionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusView.swift; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				3A5A9A6E864D172C2E63B87A /* Assets.xcassets */,
+				7C4846C5AF2B7744D18F22CC /* Localizable.xcstrings */,
+				C6A70FB8E44A01C677B66063 /* Localizations.swift */,
 				D528DDA49D497B526F86D61F /* StockPriceTrackerApp.swift */,
 				3C1AEEA3E6F1B7F57C23E561 /* App */,
 				BF5F4BE9CB915361C6120140 /* Features */,
@@ -264,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFCE06CA236A0A8959F1D6E6 /* Assets.xcassets in Resources */,
+				DC66C7EF2C8F7741496ECF71 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +283,7 @@
 			files = (
 				AC38E1F63A974AAD6B3ED1B7 /* AppConfiguration.swift in Sources */,
 				528E5E639CB765A057373D48 /* ConnectionStatusView.swift in Sources */,
+				90873A080CD1BE642ABF116F /* Localizations.swift in Sources */,
 				CD02BAD0FFDBB8B25F68564E /* PriceChangeLabel.swift in Sources */,
 				DE4BDAFD1BD119AC9F770865 /* PriceFormat.swift in Sources */,
 				459A7A7EDF05B1F37C77A976 /* StockPriceTrackerApp.swift in Sources */,
