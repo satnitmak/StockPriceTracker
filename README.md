@@ -40,11 +40,13 @@ xcodebuild -project StockPriceTracker.xcodeproj -scheme StockPriceTracker \
   -destination 'platform=iOS Simulator,id=<SIMULATOR_ID>' test
 ```
 
-Tests use Swift Testing, a mock socket, and a mock feed, so they never touch the network.
+Unit tests use Swift Testing, a mock socket, and a mock feed, so they never touch the network.
+
+The app test run also includes a UI test (`StockPriceTrackerUITests`). It launches the app on the simulator, taps Start, and opens the detail screen for a row. It uses the live echo server, so it needs network access.
 
 ## Limits
 
 - Prices are simulated, and the feed depends on the public echo server.
 - One stock updates per second.
 - A dropped connection needs Start again.
-- No UI tests or CI yet.
+- No CI yet.
