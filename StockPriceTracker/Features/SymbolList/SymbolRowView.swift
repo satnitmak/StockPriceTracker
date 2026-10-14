@@ -24,5 +24,6 @@ struct SymbolRowView: View {
             }
         }
         .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("symbolRow-\(stock.symbol)")
     }
 }

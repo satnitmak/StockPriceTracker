@@ -39,12 +39,25 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.example.StockPriceTrackerTests
+  StockPriceTrackerUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - StockPriceTrackerUITests
+    dependencies:
+      - target: StockPriceTracker
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.StockPriceTrackerUITests
+        SWIFT_DEFAULT_ACTOR_ISOLATION: nonisolated
 schemes:
   StockPriceTracker:
     build:
       targets:
         StockPriceTracker: all
         StockPriceTrackerTests: [test]
+        StockPriceTrackerUITests: [test]
     test:
       targets:
         - StockPriceTrackerTests
+        - StockPriceTrackerUITests

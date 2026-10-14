@@ -21,6 +21,7 @@
 		AAF4E653E0CD2CE3205954D7 /* StockCore in Frameworks */ = {isa = PBXBuildFile; productRef = C1DCC7E4B1040AB477C69A70 /* StockCore */; };
 		AC38E1F63A974AAD6B3ED1B7 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D645A87FFF4D3BA66D26AA /* AppConfiguration.swift */; };
 		C9D2D9E592622B5E0E7FA34C /* SymbolRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6E9096C31D77E87A399169 /* SymbolRowView.swift */; };
+		CBF229AB0365B2957DD595ED /* StockPriceTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D378567130025A4569CDFC85 /* StockPriceTrackerUITests.swift */; };
 		CD02BAD0FFDBB8B25F68564E /* PriceChangeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E5B619A8EEB2948988B7FB /* PriceChangeLabel.swift */; };
 		D52BB87BD0A33AE453D2E4F8 /* SymbolDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292ECA498618BF6F58F09330 /* SymbolDetailViewModel.swift */; };
 		DC66C7EF2C8F7741496ECF71 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7C4846C5AF2B7744D18F22CC /* Localizable.xcstrings */; };
@@ -29,6 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9009D47718DABB43085B4D29 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B3790F8BD45855ABAC01FF1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E761C14745B17E912E09FEF;
+			remoteInfo = StockPriceTracker;
+		};
 		DF0C6EEF3E4F8C212D8F8320 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B3790F8BD45855ABAC01FF1C /* Project object */;
@@ -52,9 +60,11 @@
 		9B20389DDA520A07792EDE3F /* SymbolListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolListView.swift; sourceTree = "<group>"; };
 		ACFADB757976969A02A33F5E /* SymbolListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolListViewModel.swift; sourceTree = "<group>"; };
 		B9BC8E4148EDDD7032FB5594 /* SymbolDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolDetailViewModelTests.swift; sourceTree = "<group>"; };
+		BD3B10A0B31CE9134C894599 /* StockPriceTrackerUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = StockPriceTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A70FB8E44A01C677B66063 /* Localizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizations.swift; sourceTree = "<group>"; };
 		D00A235B1FE27CFABD5A28D2 /* Polling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polling.swift; sourceTree = "<group>"; };
 		D2B11E488EBD8C63C0C2041A /* SymbolDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolDetailView.swift; sourceTree = "<group>"; };
+		D378567130025A4569CDFC85 /* StockPriceTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPriceTrackerUITests.swift; sourceTree = "<group>"; };
 		D522FBFD9D466C4091FEBB8E /* ConnectionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusView.swift; sourceTree = "<group>"; };
 		D528DDA49D497B526F86D61F /* StockPriceTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPriceTrackerApp.swift; sourceTree = "<group>"; };
 		FB6E9096C31D77E87A399169 /* SymbolRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolRowView.swift; sourceTree = "<group>"; };
@@ -111,6 +121,7 @@
 				E1A229BAA8DFB18D5BD40BFF /* Packages */,
 				241FF94D369F042E1EBC1B89 /* StockPriceTracker */,
 				704675459072BEB52D8E63D6 /* StockPriceTrackerTests */,
+				41B9A1E6952D1EE3E28FCDDB /* StockPriceTrackerUITests */,
 				7A04168EC6CD8268913F8458 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,6 +132,14 @@
 				39D645A87FFF4D3BA66D26AA /* AppConfiguration.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		41B9A1E6952D1EE3E28FCDDB /* StockPriceTrackerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D378567130025A4569CDFC85 /* StockPriceTrackerUITests.swift */,
+			);
+			path = StockPriceTrackerUITests;
 			sourceTree = "<group>";
 		};
 		6CDC789B52BFB89F8D0B2C0A /* SymbolDetail */ = {
@@ -147,6 +166,7 @@
 			children = (
 				3F56027373A1FBA9848A656E /* StockPriceTracker.app */,
 				3F169F8DCB9F6F8D385C59A1 /* StockPriceTrackerTests.xctest */,
+				BD3B10A0B31CE9134C894599 /* StockPriceTrackerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -230,6 +250,24 @@
 			productReference = 3F169F8DCB9F6F8D385C59A1 /* StockPriceTrackerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		8D31A392037F25C229E084FF /* StockPriceTrackerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C517A840C7F6B6B418240052 /* Build configuration list for PBXNativeTarget "StockPriceTrackerUITests" */;
+			buildPhases = (
+				54C2D13A19B577D243078843 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C7B20642595689F5F483AF46 /* PBXTargetDependency */,
+			);
+			name = StockPriceTrackerUITests;
+			packageProductDependencies = (
+			);
+			productName = StockPriceTrackerUITests;
+			productReference = BD3B10A0B31CE9134C894599 /* StockPriceTrackerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -239,6 +277,9 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					8D31A392037F25C229E084FF = {
+						TestTargetID = 5E761C14745B17E912E09FEF;
+					};
 				};
 			};
 			buildConfigurationList = E28A211AF80DB2D6740C804D /* Build configuration list for PBXProject "StockPriceTracker" */;
@@ -260,6 +301,7 @@
 			targets = (
 				5E761C14745B17E912E09FEF /* StockPriceTracker */,
 				869173657B009385CADAACEE /* StockPriceTrackerTests */,
+				8D31A392037F25C229E084FF /* StockPriceTrackerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -277,6 +319,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		54C2D13A19B577D243078843 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBF229AB0365B2957DD595ED /* StockPriceTrackerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		67B72276D23609370C2EBC88 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -309,6 +359,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C7B20642595689F5F483AF46 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E761C14745B17E912E09FEF /* StockPriceTracker */;
+			targetProxy = 9009D47718DABB43085B4D29 /* PBXContainerItemProxy */;
+		};
 		CE9218BEBDAFAA95A8BEB098 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5E761C14745B17E912E09FEF /* StockPriceTracker */;
@@ -317,6 +372,23 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		09DE957F7FC486439763BE0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.StockPriceTrackerUITests;
+				SDKROOT = iphoneos;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StockPriceTracker;
+			};
+			name = Release;
+		};
 		10EB4C7BE545F34DD1BF3AF4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -346,6 +418,23 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StockPriceTracker.app/StockPriceTracker";
+			};
+			name = Debug;
+		};
+		53DC4315A28A6F7B2702DC9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.StockPriceTrackerUITests;
+				SDKROOT = iphoneos;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StockPriceTracker;
 			};
 			name = Debug;
 		};
@@ -518,6 +607,15 @@
 			buildConfigurations = (
 				49CDE6B57725D7DE835B2BBF /* Debug */,
 				10EB4C7BE545F34DD1BF3AF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C517A840C7F6B6B418240052 /* Build configuration list for PBXNativeTarget "StockPriceTrackerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53DC4315A28A6F7B2702DC9C /* Debug */,
+				09DE957F7FC486439763BE0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
