@@ -4,16 +4,20 @@ import Foundation
 // MARK:  -  Fake WebSocket Transport  -
 
 /// In-memory socket. With `echoes` on, every sent message is delivered back, like the echo server.
-actor FakeWebSocketTransport: WebSocketTransport {
+actor MockWebSocketTransport: WebSocketTransport {
     private(set) var sentMessages: [String] = []
     private(set) var closeCount = 0
     private(set) var connectedURL: URL?
     private let echoes: Bool
     private let continuation: AsyncThrowingStream<String, Error>.Continuation
     private let incoming: AsyncThrowingStream<String, Error>
+    private var holdsNextClose: Bool
+    private var closeHold: CheckedContinuation<Void, Never>?
 
-    init(echoes: Bool = true) {
+    /// - Parameter holdsFirstCloseUntilReleased: when true, the first `close()` call waits until `releaseClose()`.
+    init(echoes: Bool = true, holdsFirstCloseUntilReleased: Bool = false) {
         self.echoes = echoes
+        self.holdsNextClose = holdsFirstCloseUntilReleased
         let pair = AsyncThrowingStream.makeStream(of: String.self, throwing: Error.self)
         self.continuation = pair.continuation
         self.incoming = pair.stream
@@ -40,6 +44,16 @@ actor FakeWebSocketTransport: WebSocketTransport {
     func close() async {
         closeCount += 1
         continuation.finish()
+        if holdsNextClose {
+            holdsNextClose = false
+            await withCheckedContinuation { closeHold = $0 }
+        }
+    }
+
+    /// Lets a held close finish.
+    func releaseClose() {
+        closeHold?.resume()
+        closeHold = nil
     }
 
     /// Simulates the connection dropping mid-session.

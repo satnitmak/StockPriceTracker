@@ -5,15 +5,15 @@ import Foundation
 
 /// Hands out transports in order, creating echoing ones once the scripted list runs out.
 actor MockTransportSupply {
-    private var pending: [FakeWebSocketTransport]
-    private(set) var issued: [FakeWebSocketTransport] = []
+    private var pending: [MockWebSocketTransport]
+    private(set) var issued: [MockWebSocketTransport] = []
 
-    init(_ transports: [FakeWebSocketTransport] = []) {
+    init(_ transports: [MockWebSocketTransport] = []) {
         self.pending = transports
     }
 
     func next() -> any WebSocketTransport {
-        let transport = pending.isEmpty ? FakeWebSocketTransport() : pending.removeFirst()
+        let transport = pending.isEmpty ? MockWebSocketTransport() : pending.removeFirst()
         issued.append(transport)
         return transport
     }

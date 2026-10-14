@@ -49,12 +49,14 @@ public actor EchoPriceFeed: PriceFeed {
 
     public func stop() async {
         generation += 1
+        // Captured before the await, so a start() during the close makes this report stale.
+        let stopGeneration = generation
         sessionTask?.cancel()
         sessionTask = nil
         let active = transport
         transport = nil
         await active?.close()
-        stateContinuation.yield(.disconnected)
+        report(.disconnected, generation: stopGeneration)
     }
 
     // MARK:  -  Session Lifecycle  -

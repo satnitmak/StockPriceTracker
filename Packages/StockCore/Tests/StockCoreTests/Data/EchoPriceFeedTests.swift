@@ -38,7 +38,7 @@ struct EchoPriceFeedTests {
     }
 
     @Test func connectsToTheEndpoint() async throws {
-        let transport = FakeWebSocketTransport()
+        let transport = MockWebSocketTransport()
         let supply = MockTransportSupply([transport])
         let feed = makeFeed(supply: supply)
 
@@ -60,7 +60,7 @@ struct EchoPriceFeedTests {
     }
 
     @Test func echoedPricesBecomeUpdates() async throws {
-        let transport = FakeWebSocketTransport()
+        let transport = MockWebSocketTransport()
         let feed = makeFeed(supply: MockTransportSupply([transport]))
         let (recorder, tasks) = record(feed)
 
@@ -77,7 +77,7 @@ struct EchoPriceFeedTests {
     }
 
     @Test func malformedEchoesAreIgnoredWithoutDroppingTheConnection() async throws {
-        let transport = FakeWebSocketTransport()
+        let transport = MockWebSocketTransport()
         let supply = MockTransportSupply([transport])
         let feed = makeFeed(supply: supply)
         let (recorder, tasks) = record(feed)
@@ -95,7 +95,7 @@ struct EchoPriceFeedTests {
     }
 
     @Test func droppedConnectionReportsDisconnectedAndDoesNotRetry() async throws {
-        let first = FakeWebSocketTransport()
+        let first = MockWebSocketTransport()
         let supply = MockTransportSupply([first])
         let feed = makeFeed(supply: supply)
         let (recorder, tasks) = record(feed)
@@ -111,9 +111,37 @@ struct EchoPriceFeedTests {
         tasks.forEach { $0.cancel() }
     }
 
+    /// Start during a Stop that is still closing the socket. Stop's late "disconnected" must be dropped,
+    /// so the new session's status is the one that stays.
+    @Test func startDuringStopLeavesTheNewSessionConnected() async throws {
+        let first = MockWebSocketTransport(holdsFirstCloseUntilReleased: true)
+        let second = MockWebSocketTransport()
+        let supply = MockTransportSupply([first, second])
+        let feed = makeFeed(supply: supply)
+        let (recorder, tasks) = record(feed)
+
+        await feed.start()
+        try await waitUntil { await first.sentMessages.count >= 1 }
+
+        let stopping = Task { await feed.stop() }
+        try await waitUntil { await first.closeCount >= 1 }
+        await feed.start()
+        // Release the close only once the new session has connected, so Stop's late status would land last.
+        try await waitUntil { await recorder.states.filter { $0 == .connected }.count >= 2 }
+        await first.releaseClose()
+        await stopping.value
+
+        try await waitUntil { await second.sentMessages.count >= 1 }
+        try await Task.sleep(for: .milliseconds(50))
+        #expect(await recorder.states.last == .connected)
+        #expect(await supply.issued.count == 2)
+        await feed.stop()
+        tasks.forEach { $0.cancel() }
+    }
+
     @Test func startAfterADropConnectsAgain() async throws {
-        let first = FakeWebSocketTransport()
-        let second = FakeWebSocketTransport()
+        let first = MockWebSocketTransport()
+        let second = MockWebSocketTransport()
         let supply = MockTransportSupply([first, second])
         let feed = makeFeed(supply: supply)
         let (recorder, tasks) = record(feed)
@@ -131,7 +159,7 @@ struct EchoPriceFeedTests {
     }
 
     @Test func stopClosesTheSocketAndStopsSending() async throws {
-        let transport = FakeWebSocketTransport()
+        let transport = MockWebSocketTransport()
         let feed = makeFeed(supply: MockTransportSupply([transport]))
         let (recorder, tasks) = record(feed)
 
