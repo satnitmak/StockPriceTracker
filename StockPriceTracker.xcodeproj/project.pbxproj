@@ -7,20 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01B5F7E3AEB0A18DB6B93356 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A361B9318BD2A817F6D6EA4 /* ContentView.swift */; };
+		0C6FBE76CB0F779EF0511E92 /* StockCore in Frameworks */ = {isa = PBXBuildFile; productRef = 411075FFF08E65ED639019D2 /* StockCore */; };
+		14E93A8B0C01059CD163E553 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A6B5FECED8681BA09CF13A /* AppContainer.swift */; };
 		2FB91C4C48D415D4A82DB47D /* SymbolListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFADB757976969A02A33F5E /* SymbolListViewModel.swift */; };
+		3BC167C12093B1B67F06B343 /* StubPriceFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C77F7BCB93E434B71C349D0 /* StubPriceFeed.swift */; };
+		459A7A7EDF05B1F37C77A976 /* StockPriceTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D528DDA49D497B526F86D61F /* StockPriceTrackerApp.swift */; };
+		51381620F89AB04AF65864EC /* Polling.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00A235B1FE27CFABD5A28D2 /* Polling.swift */; };
+		528E5E639CB765A057373D48 /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D522FBFD9D466C4091FEBB8E /* ConnectionStatusView.swift */; };
+		7414A017B840DD5EECF74A64 /* SymbolListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A7C80D94C5F389CF35B8CE /* SymbolListViewModelTests.swift */; };
+		A2E015C9AC03C91EA61416AC /* SymbolListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B20389DDA520A07792EDE3F /* SymbolListView.swift */; };
 		AAF4E653E0CD2CE3205954D7 /* StockCore in Frameworks */ = {isa = PBXBuildFile; productRef = C1DCC7E4B1040AB477C69A70 /* StockCore */; };
-		C46899FF970B24E441F51714 /* MyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975A0AEE6945D8CAD9F6207 /* MyApp.swift */; };
+		AC38E1F63A974AAD6B3ED1B7 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D645A87FFF4D3BA66D26AA /* AppConfiguration.swift */; };
+		C9D2D9E592622B5E0E7FA34C /* SymbolRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6E9096C31D77E87A399169 /* SymbolRowView.swift */; };
+		CD02BAD0FFDBB8B25F68564E /* PriceChangeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E5B619A8EEB2948988B7FB /* PriceChangeLabel.swift */; };
+		DE4BDAFD1BD119AC9F770865 /* PriceFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0F073AB9BB1AA93956E345 /* PriceFormat.swift */; };
 		FFCE06CA236A0A8959F1D6E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A9A6E864D172C2E63B87A /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DF0C6EEF3E4F8C212D8F8320 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B3790F8BD45855ABAC01FF1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E761C14745B17E912E09FEF;
+			remoteInfo = StockPriceTracker;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		0975A0AEE6945D8CAD9F6207 /* MyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApp.swift; sourceTree = "<group>"; };
+		06A7C80D94C5F389CF35B8CE /* SymbolListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolListViewModelTests.swift; sourceTree = "<group>"; };
+		34E5B619A8EEB2948988B7FB /* PriceChangeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceChangeLabel.swift; sourceTree = "<group>"; };
+		39D645A87FFF4D3BA66D26AA /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		3A5A9A6E864D172C2E63B87A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3C77F7BCB93E434B71C349D0 /* StubPriceFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubPriceFeed.swift; sourceTree = "<group>"; };
+		3F169F8DCB9F6F8D385C59A1 /* StockPriceTrackerTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = StockPriceTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F56027373A1FBA9848A656E /* StockPriceTracker.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = StockPriceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654FC351A96D2DF1A21C83C0 /* StockCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StockCore; path = Packages/StockCore; sourceTree = SOURCE_ROOT; };
-		6A361B9318BD2A817F6D6EA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		68A6B5FECED8681BA09CF13A /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
+		9B20389DDA520A07792EDE3F /* SymbolListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolListView.swift; sourceTree = "<group>"; };
 		ACFADB757976969A02A33F5E /* SymbolListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolListViewModel.swift; sourceTree = "<group>"; };
+		D00A235B1FE27CFABD5A28D2 /* Polling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polling.swift; sourceTree = "<group>"; };
+		D522FBFD9D466C4091FEBB8E /* ConnectionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusView.swift; sourceTree = "<group>"; };
+		D528DDA49D497B526F86D61F /* StockPriceTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPriceTrackerApp.swift; sourceTree = "<group>"; };
+		FB6E9096C31D77E87A399169 /* SymbolRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolRowView.swift; sourceTree = "<group>"; };
+		FF0F073AB9BB1AA93956E345 /* PriceFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFormat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,13 +62,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BFE1DACC0752461A7796EA8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C6FBE76CB0F779EF0511E92 /* StockCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		040FF2D6D3BDBA21A4013692 /* SymbolList */ = {
 			isa = PBXGroup;
 			children = (
+				9B20389DDA520A07792EDE3F /* SymbolListView.swift */,
 				ACFADB757976969A02A33F5E /* SymbolListViewModel.swift */,
+				FB6E9096C31D77E87A399169 /* SymbolRowView.swift */,
 			);
 			path = SymbolList;
 			sourceTree = "<group>";
@@ -47,9 +87,10 @@
 			isa = PBXGroup;
 			children = (
 				3A5A9A6E864D172C2E63B87A /* Assets.xcassets */,
-				6A361B9318BD2A817F6D6EA4 /* ContentView.swift */,
-				0975A0AEE6945D8CAD9F6207 /* MyApp.swift */,
+				D528DDA49D497B526F86D61F /* StockPriceTrackerApp.swift */,
+				3C1AEEA3E6F1B7F57C23E561 /* App */,
 				BF5F4BE9CB915361C6120140 /* Features */,
+				E23D49F792E648FD0800130B /* Shared */,
 			);
 			path = StockPriceTracker;
 			sourceTree = "<group>";
@@ -59,14 +100,34 @@
 			children = (
 				E1A229BAA8DFB18D5BD40BFF /* Packages */,
 				241FF94D369F042E1EBC1B89 /* StockPriceTracker */,
+				704675459072BEB52D8E63D6 /* StockPriceTrackerTests */,
 				7A04168EC6CD8268913F8458 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		3C1AEEA3E6F1B7F57C23E561 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				39D645A87FFF4D3BA66D26AA /* AppConfiguration.swift */,
+				68A6B5FECED8681BA09CF13A /* AppContainer.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		704675459072BEB52D8E63D6 /* StockPriceTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				06A7C80D94C5F389CF35B8CE /* SymbolListViewModelTests.swift */,
+				C3F61A19A576892541266BD7 /* Support */,
+			);
+			path = StockPriceTrackerTests;
 			sourceTree = "<group>";
 		};
 		7A04168EC6CD8268913F8458 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				3F56027373A1FBA9848A656E /* StockPriceTracker.app */,
+				3F169F8DCB9F6F8D385C59A1 /* StockPriceTrackerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,12 +140,31 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
+		C3F61A19A576892541266BD7 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				D00A235B1FE27CFABD5A28D2 /* Polling.swift */,
+				3C77F7BCB93E434B71C349D0 /* StubPriceFeed.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		E1A229BAA8DFB18D5BD40BFF /* Packages */ = {
 			isa = PBXGroup;
 			children = (
 				654FC351A96D2DF1A21C83C0 /* StockCore */,
 			);
 			path = Packages;
+			sourceTree = "<group>";
+		};
+		E23D49F792E648FD0800130B /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D522FBFD9D466C4091FEBB8E /* ConnectionStatusView.swift */,
+				34E5B619A8EEB2948988B7FB /* PriceChangeLabel.swift */,
+				FF0F073AB9BB1AA93956E345 /* PriceFormat.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,6 +189,26 @@
 			productName = StockPriceTracker;
 			productReference = 3F56027373A1FBA9848A656E /* StockPriceTracker.app */;
 			productType = "com.apple.product-type.application";
+		};
+		869173657B009385CADAACEE /* StockPriceTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A1E32624054707098D5AE11 /* Build configuration list for PBXNativeTarget "StockPriceTrackerTests" */;
+			buildPhases = (
+				CA7B4032809FFD250D5674CD /* Sources */,
+				BFE1DACC0752461A7796EA8E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE9218BEBDAFAA95A8BEB098 /* PBXTargetDependency */,
+			);
+			name = StockPriceTrackerTests;
+			packageProductDependencies = (
+				411075FFF08E65ED639019D2 /* StockCore */,
+			);
+			productName = StockPriceTrackerTests;
+			productReference = 3F169F8DCB9F6F8D385C59A1 /* StockPriceTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -139,6 +239,7 @@
 			projectRoot = "";
 			targets = (
 				5E761C14745B17E912E09FEF /* StockPriceTracker */,
+				869173657B009385CADAACEE /* StockPriceTrackerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -159,15 +260,71 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01B5F7E3AEB0A18DB6B93356 /* ContentView.swift in Sources */,
-				C46899FF970B24E441F51714 /* MyApp.swift in Sources */,
+				AC38E1F63A974AAD6B3ED1B7 /* AppConfiguration.swift in Sources */,
+				14E93A8B0C01059CD163E553 /* AppContainer.swift in Sources */,
+				528E5E639CB765A057373D48 /* ConnectionStatusView.swift in Sources */,
+				CD02BAD0FFDBB8B25F68564E /* PriceChangeLabel.swift in Sources */,
+				DE4BDAFD1BD119AC9F770865 /* PriceFormat.swift in Sources */,
+				459A7A7EDF05B1F37C77A976 /* StockPriceTrackerApp.swift in Sources */,
+				A2E015C9AC03C91EA61416AC /* SymbolListView.swift in Sources */,
 				2FB91C4C48D415D4A82DB47D /* SymbolListViewModel.swift in Sources */,
+				C9D2D9E592622B5E0E7FA34C /* SymbolRowView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA7B4032809FFD250D5674CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51381620F89AB04AF65864EC /* Polling.swift in Sources */,
+				3BC167C12093B1B67F06B343 /* StubPriceFeed.swift in Sources */,
+				7414A017B840DD5EECF74A64 /* SymbolListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		CE9218BEBDAFAA95A8BEB098 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E761C14745B17E912E09FEF /* StockPriceTracker */;
+			targetProxy = DF0C6EEF3E4F8C212D8F8320 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		10EB4C7BE545F34DD1BF3AF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.StockPriceTrackerTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StockPriceTracker.app/StockPriceTracker";
+			};
+			name = Release;
+		};
+		49CDE6B57725D7DE835B2BBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.StockPriceTrackerTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StockPriceTracker.app/StockPriceTracker";
+			};
+			name = Debug;
+		};
 		9475EBAC31B4CB7D2D8B5F3B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -332,6 +489,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7A1E32624054707098D5AE11 /* Build configuration list for PBXNativeTarget "StockPriceTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49CDE6B57725D7DE835B2BBF /* Debug */,
+				10EB4C7BE545F34DD1BF3AF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		E28A211AF80DB2D6740C804D /* Build configuration list for PBXProject "StockPriceTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -360,6 +526,10 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		411075FFF08E65ED639019D2 /* StockCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = StockCore;
+		};
 		C1DCC7E4B1040AB477C69A70 /* StockCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = StockCore;

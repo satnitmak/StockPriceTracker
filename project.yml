@@ -27,8 +27,23 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.example.StockPriceTracker
         PRODUCT_NAME: StockPriceTracker
+  StockPriceTrackerTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - StockPriceTrackerTests
+    dependencies:
+      - target: StockPriceTracker
+      - package: StockCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.StockPriceTrackerTests
 schemes:
   StockPriceTracker:
     build:
       targets:
         StockPriceTracker: all
+        StockPriceTrackerTests: [test]
+    test:
+      targets:
+        - StockPriceTrackerTests
