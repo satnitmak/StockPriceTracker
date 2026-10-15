@@ -5,9 +5,7 @@ import XCTest
 final class StockPriceTrackerUITests: XCTestCase {
     @MainActor
     func testStartThenOpenDetailShowsTheSymbol() throws {
-        let app = XCUIApplication()
-        app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
-        app.launch()
+        let app = launchApp()
 
         XCTAssertTrue(app.navigationBars["Symbols"].waitForExistence(timeout: 5))
 
@@ -27,9 +25,7 @@ final class StockPriceTrackerUITests: XCTestCase {
 
     @MainActor
     func testStatusFollowsStartAndStop() throws {
-        let app = XCUIApplication()
-        app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
-        app.launch()
+        let app = launchApp()
 
         let status = app.descendants(matching: .any).matching(identifier: "connectionStatus").firstMatch
         XCTAssertTrue(status.waitForExistence(timeout: 5))
@@ -45,9 +41,7 @@ final class StockPriceTrackerUITests: XCTestCase {
 
     @MainActor
     func testSortControlSelectsPriceChangeAndKeepsRows() throws {
-        let app = XCUIApplication()
-        app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
-        app.launch()
+        let app = launchApp()
 
         XCTAssertTrue(app.navigationBars["Symbols"].waitForExistence(timeout: 5))
 
@@ -61,6 +55,15 @@ final class StockPriceTrackerUITests: XCTestCase {
     }
 
     // MARK:  -  Helpers  -
+
+    /// Launches the app in English, so element lookups by text work on any device language.
+    @MainActor
+    private func launchApp() -> XCUIApplication {
+        let app = XCUIApplication()
+        app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
+        app.launch()
+        return app
+    }
 
     /// Waits until an element's accessibility label matches, since live updates can change it after a tap.
     @MainActor
