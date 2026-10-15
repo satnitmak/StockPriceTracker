@@ -6,6 +6,7 @@ final class StockPriceTrackerUITests: XCTestCase {
     @MainActor
     func testStartThenOpenDetailShowsTheSymbol() throws {
         let app = XCUIApplication()
+        app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
         app.launch()
 
         XCTAssertTrue(app.navigationBars["Symbols"].waitForExistence(timeout: 5))
@@ -27,6 +28,7 @@ final class StockPriceTrackerUITests: XCTestCase {
     @MainActor
     func testStatusFollowsStartAndStop() throws {
         let app = XCUIApplication()
+        app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
         app.launch()
 
         let status = app.descendants(matching: .any).matching(identifier: "connectionStatus").firstMatch
@@ -44,6 +46,7 @@ final class StockPriceTrackerUITests: XCTestCase {
     @MainActor
     func testSortControlSelectsPriceChangeAndKeepsRows() throws {
         let app = XCUIApplication()
+        app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
         app.launch()
 
         XCTAssertTrue(app.navigationBars["Symbols"].waitForExistence(timeout: 5))
