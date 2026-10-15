@@ -42,11 +42,13 @@ xcodebuild -project StockPriceTracker.xcodeproj -scheme StockPriceTracker \
 
 Unit tests use Swift Testing, a mock socket, and a mock feed, so they never touch the network.
 
-The app test run also includes a UI test (`StockPriceTrackerUITests`). It launches the app on the simulator, taps Start, and opens the detail screen for a row. It uses the live echo server, so it needs network access.
+GitHub Actions runs the package tests on every pull request and on pushes to `main` (see `.github/workflows/package-tests.yml`). The app and UI tests run locally only.
+
+The app test run also includes a UI test (`StockPriceTrackerUITests`). It launches the app on the simulator, taps Start, and opens the detail screen for a row. It uses the live echo server, so it needs network access. It launches in English, so text lookups work on any device language.
 
 ## Limits
 
 - Prices are simulated, and the feed depends on the public echo server.
 - One stock updates per second.
 - A dropped connection needs Start again.
-- No CI yet.
+- CI runs only the package tests. App and UI tests run locally.
