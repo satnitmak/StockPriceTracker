@@ -1,0 +1,16 @@
+name: Package tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run StockCore tests
+        run: swift test
+        working-directory: Packages/StockCore
